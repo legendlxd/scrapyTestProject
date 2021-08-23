@@ -78,7 +78,9 @@ class MyfirstpjDownloaderMiddleware:
         # - or return a Request object
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
-        '''设置headers和切换请求头'''
+        # print('设置headers和切换请求头')
+        # request.meta['proxy'] = "https://127.0.0.1:1087"
+        # print(request.meta)
         referer = request.url
         if referer:
             request.headers['referer'] = referer
