@@ -14,7 +14,7 @@ class EhentaiSpider(scrapy.Spider):
         titleLists = response.xpath('//div[@class="glink"]').extract()
         ContentUrls = response.xpath('//td[@class="gl3c glname"]/a/@href').extract()
         page = response.xpath('//table[@class="ptt"]')
-        print('page ==> ',page)
+        print('page ==> ',page.extract())
         for i,j,k in zip(lists,titleLists,ContentUrls):
             items['coverImg']= i
             items['title'] = j
