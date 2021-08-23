@@ -11,12 +11,12 @@ class EhentaiSpider(scrapy.Spider):
     def parse(self, response):
         items = MyfirstpjItem()
         lists = response.xpath('//div[@class="glthumb"]/div/img/@src')
-        print(lists)
+        print('glthumb == > ',lists)
         titleLists = response.xpath('//div[@class="glink"]')
-        print(titleLists)
+        print('glink == > ',titleLists)
         ContentUrls = response.xpath('//td[@class="gl3c glname"]/a/@href')
-        print(ContentUrls)
+        print('gl3c glname',ContentUrls)
         for i in lists:
-            items['coverImg']=i.xpath('/@src')
+            items['coverImg']=i
             yield items
         
