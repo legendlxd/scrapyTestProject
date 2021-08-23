@@ -24,6 +24,6 @@ class EhentaiSpider(scrapy.Spider):
             items['title'] = j
             items['contentUrl'] = k
             yield items
-        if next != None:
-            yield scrapy.Request(url=next,callback=self.parse)
+
+        yield scrapy.Request(url=next,callback=self.parse)
         
