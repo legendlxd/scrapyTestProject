@@ -1,4 +1,6 @@
 import scrapy
+from lxml import html
+from urllib import parse
 from myfirstPj.items import MyfirstpjItem
 class EhentaiSpider(scrapy.Spider):
     name = 'ehentai'
@@ -13,8 +15,9 @@ class EhentaiSpider(scrapy.Spider):
         lists = response.xpath('//div[@class="glthumb"]/div/img/@src').extract()
         titleLists = response.xpath('//div[@class="glink"]').extract()
         ContentUrls = response.xpath('//td[@class="gl3c glname"]/a/@href').extract()
-        page = response.xpath('//table[@class="ptt"]//a').extract()
-        print('page ==> ',page.last())
+        page = response.xpath('//table[@class="ptt"]//a/@href').extract()
+        print('page ==> first',page[0])
+        print('page ==> last', page[len(page) - 1])
         for i,j,k in zip(lists,titleLists,ContentUrls):
             items['coverImg']= i
             items['title'] = j
