@@ -13,8 +13,8 @@ class EhentaiSpider(scrapy.Spider):
         lists = response.xpath('//div[@class="glthumb"]/div/img/@src').extract()
         titleLists = response.xpath('//div[@class="glink"]').extract()
         ContentUrls = response.xpath('//td[@class="gl3c glname"]/a/@href').extract()
-        page = response.xpath('//table[@class="ptt"]//a')
-        print('page ==> ',page.extract())
+        page = response.xpath('//table[@class="ptt"]//a').extract()
+        print('page ==> ',page.last())
         for i,j,k in zip(lists,titleLists,ContentUrls):
             items['coverImg']= i
             items['title'] = j
