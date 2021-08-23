@@ -10,13 +10,12 @@ class EhentaiSpider(scrapy.Spider):
     #     yield scrapy.Request(self.start_urls[0],meta={"proxy":proxy})
     def parse(self, response):
         items = MyfirstpjItem()
-        lists = response.xpath('//div[@class="glthumb"]/div/img/@src')
-        print('glthumb == > ',lists.extract())
-        titleLists = response.xpath('//div[@class="glink"]')
-        print('glink == > ',titleLists.extract())
-        ContentUrls = response.xpath('//td[@class="gl3c glname"]/a/@href')
-        print('gl3c glname == >',ContentUrls.extract())
-        for i in lists:
-            items['coverImg']=i
+        lists = response.xpath('//div[@class="glthumb"]/div/img/@src').extract()
+        titleLists = response.xpath('//div[@class="glink"]').extract()
+        ContentUrls = response.xpath('//td[@class="gl3c glname"]/a/@href').extract()
+        for i,j,k in zip(lists,titleLists,ContentUrls):
+            items['coverImg']= i
+            items['title'] = j
+            items['contentUrl'] = k
             yield items
         
