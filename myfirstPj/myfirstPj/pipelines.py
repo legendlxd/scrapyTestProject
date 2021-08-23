@@ -10,5 +10,5 @@ from itemadapter import ItemAdapter
 
 class MyfirstpjPipeline:
     def process_item(self, item, spider):
-        print('process_item :' + item)
+        print(item)
         return item
