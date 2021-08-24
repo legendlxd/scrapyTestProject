@@ -82,6 +82,7 @@ class MyfirstpjDownloaderMiddleware:
         # request.meta['proxy'] = "https://127.0.0.1:1087"
         # print(request.meta)
         referer = request.url
+        print(request.headers)
         if referer:
             request.headers['referer'] = referer
         return None

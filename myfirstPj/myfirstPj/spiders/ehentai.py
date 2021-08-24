@@ -25,5 +25,5 @@ class EhentaiSpider(scrapy.Spider):
             items['contentUrl'] = k
             yield items
 
-        yield scrapy.Request(url=next,callback=self.parse)
+        # yield scrapy.Request(url=next,callback=self.parse)
         

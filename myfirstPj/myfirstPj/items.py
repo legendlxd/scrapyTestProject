@@ -12,3 +12,6 @@ class MyfirstpjItem(scrapy.Item):
     title = scrapy.Field()
     coverImg = scrapy.Field()
     contentUrl = scrapy.Field()
+    
+class maoYanItem(scrapy.Item):
+    fontUrl = scrapy.Field
